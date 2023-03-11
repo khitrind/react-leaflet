@@ -4,7 +4,7 @@ import { Polyline, useMapEvents } from 'react-leaflet';
 
 const fillBlueOptions = { fillColor: 'blue' };
 
-export const AddPolyLine = memo(() => {
+export const AddPolyline = memo(() => {
 
   const [position, setPosition] = useState<LatLngExpression[]>([]);
   useMapEvents({
