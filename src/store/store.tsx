@@ -3,8 +3,7 @@ import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
 
 import { rootReducer } from './reducers';
 
-export function createStore(preloadedState?: PreloadedState<RootState>) {
-
+export const createStore = (preloadedState?: PreloadedState<RootState>) => {
   const isProduction = process.env.NODE_ENV === 'production';
 
   const store = configureStore({
@@ -14,7 +13,7 @@ export function createStore(preloadedState?: PreloadedState<RootState>) {
   });
 
   return store;
-}
+};
 
 export type RootState = ReturnType<typeof rootReducer>;
 type AppThunkDispatch = ThunkDispatch<RootState, any, AnyAction>;

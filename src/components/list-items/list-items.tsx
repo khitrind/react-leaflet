@@ -1,27 +1,20 @@
-import { memo, useMemo } from 'react';
-import { ListItem } from '../list-item/list-item';
+import { memo } from 'react';
+import { itemsOrderSelector } from 'src/store/map-objects/selectors';
+import { useAppSelector } from 'src/store/store';
+import { ListItemAdapter } from '../list-item/list-item-adapter';
 
 
-type Props = {
-  items?: string[];
-}
-
-export const ListItems = memo(({ items }: Props) => {
-
-  const itemsList = useMemo(() => {
-    if (!items || items.length === 0) {
-      return null;
-    }
-
-    return items.map((value, idx) => (
-      <ListItem key={idx} name={value} />
-    ));
-  }, []);
-
+export const ListItems = memo(() => {
+  const itemsOrder = useAppSelector(itemsOrderSelector);
 
   return (
     <div>
-      {itemsList}
+      {itemsOrder.map((id) => (
+        <ListItemAdapter
+          key={id}
+          id={id}
+        />
+      ))}
     </div>
   );
 });

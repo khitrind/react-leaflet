@@ -1,25 +1,28 @@
-import { LatLngExpression, LeafletMouseEvent } from 'leaflet';
+import { LatLngTuple, LeafletMouseEvent } from 'leaflet';
 import { useCallback, useState } from 'react';
+import { convertLatLngToTuple } from 'src/utils/convert-lat-lng-to-tuple';
 import { CreateObjectCallback } from './types';
 
 
 
 
 export const useAddPolyline = (cb: CreateObjectCallback) => {
-  const [position, setPosition] = useState<LatLngExpression[]>([]);
+  const [position, setPosition] = useState<LatLngTuple[]>([]);
 
   const handleClick = useCallback((e: LeafletMouseEvent) => {
-    setPosition((pos) => [...pos, e.latlng]);
+    setPosition((pos) => [...pos, convertLatLngToTuple(e.latlng)]);
   }, []);
 
   const handleDoubleClick = useCallback(() => {
+    console.log(100);
     if (position.length <= 1) {
       // should fire popup with question
       console.error('Not completed');
       return;
     }
-    cb(position);
-  }, []);
+    cb([...position]);
+    setPosition([]);
+  }, [cb, position]);
 
 
 

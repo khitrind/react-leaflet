@@ -1,12 +1,13 @@
 import { memo } from 'react';
 import { Polyline, useMapEvents } from 'react-leaflet';
+import { CreateObjectCallback } from './types';
 
 import { useAddPolyline } from './use-add-polyline';
 
 const fillBlueOptions = { fillColor: 'blue' };
 
 type Props = {
-  onObjectCreated: () => void;
+  onObjectCreated: CreateObjectCallback;
 }
 
 export const AddPolyline = memo(({ onObjectCreated }: Props) => {
