@@ -1,21 +1,20 @@
-import { LatLngExpression } from 'leaflet';
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { Polyline, useMapEvents } from 'react-leaflet';
+
+import { useAddPolyline } from './use-add-polyline';
 
 const fillBlueOptions = { fillColor: 'blue' };
 
-export const AddPolyline = memo(() => {
+type Props = {
+  onObjectCreated: () => void;
+}
 
-  const [position, setPosition] = useState<LatLngExpression[]>([]);
+export const AddPolyline = memo(({ onObjectCreated }: Props) => {
+  const { position, handleClick, handleDoubleClick } = useAddPolyline(onObjectCreated);
+
   useMapEvents({
-    click: (e) => {
-      e.latlng;
-      setPosition((pos) => [...pos, e.latlng]);
-    },
-    dblclick: (e) => {
-      e.latlng;
-      setPosition((pos) => [...pos, e.latlng]);
-    },
+    click: handleClick,
+    dblclick: handleDoubleClick,
   });
 
   return (
