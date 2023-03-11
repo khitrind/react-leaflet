@@ -1,0 +1,1 @@
+export { mapObjectsReducer } from './slice';
