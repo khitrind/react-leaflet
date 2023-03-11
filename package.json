@@ -11,11 +11,13 @@
     "lint": "eslint --ext .ts src"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "1.9.3",
     "classnames": "2.3.2",
     "leaflet": "1.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "4.2.1",
+    "react-redux": "8.0.5",
     "vite-plugin-svgr": "2.4.0"
   },
   "devDependencies": {
