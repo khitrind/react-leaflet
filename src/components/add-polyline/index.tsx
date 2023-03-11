@@ -1,1 +1,1 @@
-export { AddPolyline } from './add-polyline';
+export { AddPolylineAdapter } from './add-polyline-adapter';
