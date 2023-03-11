@@ -1,13 +1,17 @@
 .button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
   padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
+  background: 0 0;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  text-align: center;
+  word-break: break-word;
+  word-wrap: wrap;
+  overflow-wrap: break-word;
+  transition: color .3s,background-color .3s;
+  outline: 0;
 }
 
 .button:hover {
@@ -17,4 +21,9 @@
 .button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
 }

@@ -3,15 +3,15 @@ import React, { memo } from 'react';
 import styles from './icon-button.module.css';
 
 type Props = {
-  icon?: JSX.Element;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   label: string;
   onClick: () => void;
 }
 
-export const IconButton = memo(({ icon, label, onClick }: Props) => {
+export const IconButton = memo(({ Icon, label, onClick }: Props) => {
   return (
     <button className={styles.button} type="button" aria-label={label} onClick={onClick}>
-      {icon}
+      <Icon className={styles.icon} />
     </button>
   );
 });

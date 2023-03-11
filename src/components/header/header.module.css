@@ -2,5 +2,11 @@
   display: flex;
   border-bottom: 1px solid black;
   align-items: center;
-  padding: 4px;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 21px;
 }

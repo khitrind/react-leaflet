@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header } from '../header';
 
-import { ListItems } from '../list-items';
-import { Map } from '../map/';
+import { ListItems } from 'src/components/list-items';
+import { Map } from 'src/components//map';
 
 import styles from './app.module.css';
 
