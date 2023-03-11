@@ -14,7 +14,6 @@ export const useAddPolyline = (cb: CreateObjectCallback) => {
   }, []);
 
   const handleDoubleClick = useCallback(() => {
-    console.log(100);
     if (position.length <= 1) {
       // should fire popup with question
       console.error('Not completed');
