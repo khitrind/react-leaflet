@@ -23,6 +23,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
+      treeshake: 'recommended',
       input: {
         app: './index.html',
       },
