@@ -10,7 +10,8 @@ export const AddPolylineAdapter = memo(() => {
       position,
       id: `id: ${Math.random()}`,
       name: `name: ${Math.random()}`,
-      type: 'polyline' as const
+      type: 'polyline' as const,
+      color: Math.floor(Math.random()*16777215).toString(16),
     };
 
     return addMapObject(result);

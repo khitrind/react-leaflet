@@ -12,7 +12,11 @@ type Props = {
   onRemove?: () => void;
 }
 
-export const ListItem = memo(({ isActive, onSelect, name }: Props) => (
+export const ListItem = memo(({
+  isActive,
+  onSelect,
+  name 
+}: Props) => (
   <div onClick={onSelect} className={cn(
     styles.refreshButton,
     isActive && styles.active

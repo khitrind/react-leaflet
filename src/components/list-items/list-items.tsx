@@ -1,7 +1,8 @@
 import { memo } from 'react';
 import { itemsOrderSelector } from 'src/store/map-objects/selectors';
 import { useAppSelector } from 'src/store/store';
-import { ListItemAdapter } from '../list-item/list-item-adapter';
+import { ErrorBoundary } from 'src/components/error-boundary';
+import { ListItemAdapter } from 'src/components/list-item';
 
 
 export const ListItems = memo(() => {
@@ -9,11 +10,13 @@ export const ListItems = memo(() => {
 
   return (
     <div>
-      {itemsOrder.map((id) => (
-        <ListItemAdapter
-          key={id}
-          id={id}
-        />
+      {itemsOrder.map(({id, type}) => (
+        <ErrorBoundary key={id}>
+          <ListItemAdapter
+            id={id}
+            type={type}
+          />
+        </ErrorBoundary>
       ))}
     </div>
   );
