@@ -1,6 +1,20 @@
-// import { Component } from 'react';
-// import { MapObjects } from 'src/types';
+import { ComponentType } from 'react';
+import { ItemType } from 'src/types';
+import { PolylineItemAdapter } from '../polyline-item/polyline-item-adapter';
 
-export const a = () => {
-  console.log(12);
+type ComponentProps = {
+  id: string;
+};
+
+type ComponentFactory = (
+  type: ItemType,
+) =>  null | ComponentType<ComponentProps>;
+
+const TYPE_TO_COMPONENT = {
+  polyline: PolylineItemAdapter
+} as const;
+
+
+export const getMapObjectComponent: ComponentFactory = (type: ItemType) => {
+  return TYPE_TO_COMPONENT[type] || null;
 };

@@ -1,9 +1,9 @@
 import { LatLngExpression } from 'leaflet';
 
-export type MapObjects = 'polyline';
+export type ItemType = 'polyline';
 
 export type MapObjectData = {
-  type: MapObjects;
+  type: ItemType;
   id: string;
   position: LatLngExpression[];
   name: string;

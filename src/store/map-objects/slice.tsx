@@ -1,8 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { MapObjectData } from 'src/types';
+import { MapObjectData, ItemType } from 'src/types';
+
+type OrderInfo = {
+  id: string;
+  type: ItemType;
+}
 
 type State = {
-  itemsOrder: string[];
+  itemsOrder: OrderInfo[];
   items: Record<string, MapObjectData>;
   selectedItem: string | undefined;
 }
@@ -29,7 +34,10 @@ const mapObjectsSlice = createSlice({
 
     addMapObject: (state, { payload }: PayloadAction<MapObjectData>) => {
       state.items[payload.id] = payload;
-      state.itemsOrder.push(payload.id);
+      state.itemsOrder.push({
+        id: payload.id,
+        type: payload.type,
+      });
     },
   }
 });
