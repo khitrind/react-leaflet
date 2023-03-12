@@ -12,7 +12,10 @@ export type Props<T> = {
 };
 
 export const useClickAndDoubleClick = <T,>({onClick, onDoubleClick, delay = 200}: Props<T>) => {
-  const ref = useRef<TimerParams>({timer: 0, prevent: false});
+  const ref = useRef<TimerParams>({
+    timer: 0,
+    prevent: false,
+  });
 
   const handleClick = useCallback(
     (e: T) => {
@@ -35,5 +38,8 @@ export const useClickAndDoubleClick = <T,>({onClick, onDoubleClick, delay = 200}
     [onDoubleClick],
   );
 
-  return {onClick: handleClick, onDoubleClick: handleDoubleClick};
+  return {
+    onClick: handleClick,
+    onDoubleClick: handleDoubleClick,
+  };
 };

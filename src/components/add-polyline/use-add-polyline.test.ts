@@ -1,10 +1,10 @@
 import {renderHook} from '@testing-library/react';
+import {act} from 'react-dom/test-utils';
 import {LeafletMouseEvent} from 'leaflet';
 import {expect, it, describe} from '@jest/globals';
 import {useAddPolyline} from './use-add-polyline';
 
 import {CreateObjectCallback} from './types';
-import {act} from 'react-dom/test-utils';
 
 const mockCb: CreateObjectCallback = () => {
   // mock-cb;
