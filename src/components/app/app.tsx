@@ -1,10 +1,12 @@
-import { Header } from 'src/components/header';
-import { Map } from 'src/components//map';
-import { ListItems } from 'src/components/list-items';
+import {Header} from 'src/components/header';
+import {Map} from 'src/components//map';
+import {ListItems} from 'src/components/list-items';
 
 import styles from './app.module.css';
+import {useCanelSelect} from 'src/hooks/use-cancel-select';
 
 export const App = () => {
+  useCanelSelect();
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>

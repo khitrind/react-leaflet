@@ -1,13 +1,7 @@
-import {
-  AnyAction,
-  configureStore,
-  PreloadedState,
-  ThunkDispatch,
-  Store,
-} from '@reduxjs/toolkit';
-import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
+import {AnyAction, configureStore, PreloadedState, ThunkDispatch, Store} from '@reduxjs/toolkit';
+import {useDispatch, TypedUseSelectorHook, useSelector} from 'react-redux';
 
-import { rootReducer } from './reducers';
+import {rootReducer} from './reducers';
 
 export const createStore = (preloadedState?: PreloadedState<RootState>) => {
   const isProduction = process.env.NODE_ENV === 'production';

@@ -1,3 +1,3 @@
-import { LatLngExpression } from 'leaflet';
+import {LatLngExpression} from 'leaflet';
 
 export type CreateObjectCallback = (obj: LatLngExpression[]) => void;

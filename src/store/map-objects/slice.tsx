@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ItemData, ItemType } from 'src/types';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {ItemData, ItemType} from 'src/types';
 
 type OrderInfo = {
   id: string;
@@ -24,17 +24,17 @@ const mapObjectsSlice = createSlice({
   initialState,
   name: 'mapObjectsReducer',
   reducers: {
-    setSelectedItem: (state, { payload }: PayloadAction<string>) => {
+    setSelectedItem: (state, {payload}: PayloadAction<string>) => {
       if (state.items[payload]) {
         state.selectedItem = payload;
       }
     },
 
-    clearSelectedItem: state => {
+    clearSelectedItem: (state) => {
       state.selectedItem = undefined;
     },
 
-    addMapObject: (state, { payload }: PayloadAction<ItemData>) => {
+    addMapObject: (state, {payload}: PayloadAction<ItemData>) => {
       state.items[payload.id] = payload;
       state.itemsOrder.push({
         id: payload.id,
@@ -42,12 +42,12 @@ const mapObjectsSlice = createSlice({
       });
     },
 
-    removeItem: (state, { payload }: PayloadAction<string>) => {
+    removeItem: (state, {payload}: PayloadAction<string>) => {
       if (!state.items[payload]) {
         return;
       }
 
-      const index = state.itemsOrder.findIndex(({ id }) => id === payload);
+      const index = state.itemsOrder.findIndex(({id}) => id === payload);
       if (index !== -1) {
         state.itemsOrder.splice(index, 1);
       }
@@ -55,18 +55,13 @@ const mapObjectsSlice = createSlice({
       delete state.items[payload];
     },
 
-    toggleIsAddMode: state => {
+    toggleIsAddMode: (state) => {
+      state.selectedItem = undefined;
       state.isAddModeEnabled = !state.isAddModeEnabled;
     },
   },
 });
 
-export const { reducer: mapObjectsReducer } = mapObjectsSlice;
+export const {reducer: mapObjectsReducer} = mapObjectsSlice;
 
-export const {
-  setSelectedItem,
-  clearSelectedItem,
-  addMapObject,
-  removeItem,
-  toggleIsAddMode,
-} = mapObjectsSlice.actions;
+export const {setSelectedItem, clearSelectedItem, addMapObject, removeItem, toggleIsAddMode} = mapObjectsSlice.actions;

@@ -1,4 +1,4 @@
-import { Component, PropsWithChildren, ReactNode } from 'react';
+import {Component, PropsWithChildren, ReactNode} from 'react';
 
 type Props = PropsWithChildren<{
   errorView?: ReactNode;
@@ -15,14 +15,14 @@ export class ErrorBoundary extends Component<Props> {
   };
 
   componentDidCatch(error: Error) {
-    const { onCatch = console.error } = this.props;
+    const {onCatch = console.error} = this.props;
     onCatch(error);
-    this.setState({ hasError: true });
+    this.setState({hasError: true});
   }
 
   render() {
-    const { children, errorView } = this.props;
-    const { hasError } = this.state;
+    const {children, errorView} = this.props;
+    const {hasError} = this.state;
     return hasError ? errorView || null : children;
   }
 }

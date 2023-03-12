@@ -1,1 +1,1 @@
-export { mapObjectsReducer } from './slice';
+export {mapObjectsReducer} from './slice';

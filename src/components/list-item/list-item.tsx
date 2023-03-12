@@ -1,7 +1,7 @@
-import { memo } from 'react';
+import {memo} from 'react';
 import cn from 'classnames';
-import { IconButton } from 'src/components/icon-button';
-import { ReactComponent as MinusIcon } from 'src/icons/minus.svg';
+import {IconButton} from 'src/components/icon-button';
+import {ReactComponent as MinusIcon} from 'src/icons/minus.svg';
 
 import styles from './list-item.module.css';
 
@@ -13,20 +13,12 @@ type Props = {
   onRemove: () => void;
 };
 
-export const ListItem = memo(
-  ({ isActive, onSelect, name, type, onRemove }: Props) => (
-    <li
-      onClick={onSelect}
-      className={cn(styles.listItem, isActive && styles.active)}>
-      <div className={styles.itemInfo}>
-        <p className={styles.text}>{name}</p>
-        {type && <p className={styles.text}>{type}</p>}
-      </div>
-      <IconButton
-        onClick={onRemove}
-        label="Remove map object item button"
-        Icon={MinusIcon}
-      />
-    </li>
-  )
-);
+export const ListItem = memo(({isActive, onSelect, name, type, onRemove}: Props) => (
+  <li onClick={onSelect} className={cn(styles.listItem, isActive && styles.active)}>
+    <div className={styles.itemInfo}>
+      <p className={styles.text}>{name}</p>
+      {type && <p className={styles.text}>{type}</p>}
+    </div>
+    <IconButton onClick={onRemove} label="Remove map object item button" Icon={MinusIcon} />
+  </li>
+));

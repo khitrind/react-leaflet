@@ -1,4 +1,4 @@
-import { ItemType } from 'src/types';
+import {ItemType} from 'src/types';
 
 const TYPE_TO_DISPLAY_TYPE: Record<ItemType, string> = {
   [ItemType.Polyline]: 'LineString',

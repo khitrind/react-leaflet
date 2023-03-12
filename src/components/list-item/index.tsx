@@ -1,1 +1,1 @@
-export { ListItemAdapter } from './list-item-adapter';
+export {ListItemAdapter} from './list-item-adapter';
