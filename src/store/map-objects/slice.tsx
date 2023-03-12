@@ -56,6 +56,7 @@ const mapObjectsSlice = createSlice({
     },
 
     toggleIsAddMode: state => {
+      state.selectedItem = undefined;
       state.isAddModeEnabled = !state.isAddModeEnabled;
     },
   },

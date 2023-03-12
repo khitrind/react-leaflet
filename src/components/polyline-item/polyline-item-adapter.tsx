@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import { useBoundAction } from 'src/hooks/use-bound-action';
+import { memo, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { listItemParamsSelector } from 'src/store/map-objects/selectors';
 import { setSelectedItem } from 'src/store/map-objects/slice';
 import { useAppSelector } from 'src/store/store';
@@ -17,7 +17,11 @@ export const PolylineItemAdapter = memo(({ id }: Props) => {
     deepEqual
   );
 
-  const handleClick = useBoundAction(() => setSelectedItem(id));
+  const dispatch = useDispatch();
+
+  const handleClick = useCallback(() => {
+    dispatch(setSelectedItem(id));
+  }, [dispatch, id]);
 
   return (
     <PolylineItem

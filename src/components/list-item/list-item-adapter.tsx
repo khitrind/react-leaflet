@@ -1,8 +1,7 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 
-import { useAppSelector } from 'src/store/store';
+import { useAppDispatch, useAppSelector } from 'src/store/store';
 
-import { useBoundAction } from 'src/hooks/use-bound-action';
 import { setSelectedItem, removeItem } from 'src/store/map-objects/slice';
 import { ListItem } from './list-item';
 import { listItemParamsSelector } from 'src/store/map-objects/selectors';
@@ -17,12 +16,19 @@ type Props = {
 
 export const ListItemAdapter = memo(({ id, type }: Props) => {
   const { item, isActive } = useAppSelector(
-    state => listItemParamsSelector(state, id, ItemType.Polyline),
+    (state) => listItemParamsSelector(state, id, ItemType.Polyline),
     deepEqual
   );
 
-  const handleSelect = useBoundAction(() => setSelectedItem(id));
-  const handleRemove = useBoundAction(() => removeItem(id));
+  const dispatch = useAppDispatch();
+
+  const handleSelect = useCallback(() => {
+    dispatch(setSelectedItem(id));
+  }, [dispatch, id]);
+
+  const handleRemove = useCallback(() => {
+    dispatch(removeItem(id));
+  }, [dispatch, id]);
 
   return (
     <ListItem
