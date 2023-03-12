@@ -11,7 +11,7 @@ export const ListItems = memo(() => {
 
   return (
     <ul className={styles.list}>
-      {itemsOrder.length === 0 && <p className={styles.emptyState}>{'Click + button to ad an Object'}</p>}
+      {itemsOrder.length === 0 && <p className={styles.emptyState}>{'Click "+" to ad an Object'}</p>}
 
       {itemsOrder.map(({id, type}) => (
         <ErrorBoundary key={id}>

@@ -6,19 +6,18 @@ import {CreateObjectCallback} from './types';
 export const useAddPolyline = (cb: CreateObjectCallback) => {
   const [position, setPosition] = useState<LatLngTuple[]>([]);
 
-  const handleClick = useCallback((e: LeafletMouseEvent) => {
+  const handleAddPoint = useCallback((e: LeafletMouseEvent) => {
     setPosition((pos) => [...pos, convertLatLngToTuple(e.latlng)]);
   }, []);
 
-  const handleDoubleClick = useCallback(() => {
+  const handleAddLine = useCallback(() => {
     if (position.length <= 1) {
       setPosition([]);
-      console.error('Not completed');
       return;
     }
     cb([...position]);
     setPosition([]);
   }, [cb, position]);
 
-  return {position, handleClick, handleDoubleClick};
+  return {position, handleAddPoint, handleAddLine};
 };

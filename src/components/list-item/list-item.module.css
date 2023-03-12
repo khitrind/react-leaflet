@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 12px;
   align-items: center;
+  cursor: pointer;
 }
 
 .listItem:hover {

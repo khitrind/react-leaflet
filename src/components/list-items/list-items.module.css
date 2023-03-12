@@ -10,4 +10,5 @@
 .emptyState {
   margin: auto;
   padding: 12px;
+  pointer: none;
 }

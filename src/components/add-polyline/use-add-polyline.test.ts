@@ -27,40 +27,39 @@ describe('useAddPolyline', () => {
     const {result} = renderHook(() => useAddPolyline(mockCb));
 
     act(() => {
-      result.current.handleClick(creatLeafletMouseEvent({lat: 1, lng: 2}));
-      result.current.handleClick(creatLeafletMouseEvent({lat: 1, lng: 2}));
+      result.current.handleAddPoint(creatLeafletMouseEvent({lat: 1, lng: 2}));
+      result.current.handleAddPoint(creatLeafletMouseEvent({lat: 1, lng: 2}));
     });
 
     expect(result.current.position.length).toBe(2);
   });
 
-  test('should not call cb when handleDoubleClick is called with less than 2 points', () => {
+  test('should not call cb when handleAddLine is called with less than 2 points', () => {
     const mockCb = jest.fn();
     const {result} = renderHook(() => useAddPolyline(mockCb));
 
     act(() => {
-      result.current.handleClick(creatLeafletMouseEvent({lat: 1, lng: 2}));
-      result.current.handleDoubleClick();
+      result.current.handleAddPoint(creatLeafletMouseEvent({lat: 1, lng: 2}));
+      result.current.handleAddLine();
     });
 
     expect(mockCb).not.toHaveBeenCalled();
   });
 
-  it('should not call the callback and log an error when handleDoubleClick is called with less than two points', () => {
+  it('should not call the callback and log an error when handleAddLine is called with less than two points', () => {
     const mockCallback = jest.fn();
     const {result} = renderHook(() => useAddPolyline(mockCallback));
-    const {handleDoubleClick} = result.current;
+    const {handleAddLine} = result.current;
 
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {
       //..
     });
 
     act(() => {
-      handleDoubleClick();
+      handleAddLine();
     });
 
     expect(mockCallback).not.toHaveBeenCalled();
-    expect(consoleSpy).toHaveBeenCalledWith('Not completed');
     expect(result.current.position).toEqual([]);
 
     consoleSpy.mockRestore();
