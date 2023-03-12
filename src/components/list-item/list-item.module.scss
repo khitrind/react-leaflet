@@ -1,3 +1,5 @@
+@import 'src/styles/variables.scss';
+
 .listItem {
   display: flex;
   justify-content: space-between;
@@ -7,15 +9,15 @@
 }
 
 .listItem:hover {
-  background: #5f647b;
+  background: $bg-color-hover;
 }
 
 .listItem:focus {
-  background: #5f647b;
+  background: $bg-color-hover;
 }
 
 .active {
-  background: #5f647b;
+  background: $bg-color-hover;
 }
 
 .itemInfo {

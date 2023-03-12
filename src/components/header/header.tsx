@@ -5,7 +5,7 @@ import {toggleIsAddMode} from 'src/store/map-objects/slice';
 import {useAppDispatch, useAppSelector} from 'src/store/store';
 import {ReactComponent as PlusIcon} from 'src/icons/plus.svg';
 
-import styles from './header.module.css';
+import styles from './header.module.scss';
 
 type Props = {
   text: string;

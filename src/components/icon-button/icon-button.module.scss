@@ -1,10 +1,13 @@
+@import 'src/styles/variables.scss';
+
+
+
 .button {
-  padding: 0;
+  padding: 4px;
   background: 0 0;
   border: none;
   text-decoration: none;
   cursor: pointer;
-  display: inline-block;
   font: inherit;
   text-align: center;
   word-break: break-word;
@@ -15,13 +18,9 @@
 }
 
 .button:hover {
-  border: 1px solid white;
+  background-color: $button-hover;
 }
 
-.button:focus {
-  border: 1px solid white;
-  outline: none;
-}
 
 .icon {
   width: 24px;

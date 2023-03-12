@@ -5,7 +5,7 @@ import {AddPolylineAdapter} from 'src/components/add-polyline';
 import {MapItems} from 'src/components/map-items';
 
 import 'leaflet/dist/leaflet.css';
-import styles from './map.module.css';
+import styles from './map.module.scss';
 
 const DEFAULE_MAP_CFG = {
   url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
