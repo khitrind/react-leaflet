@@ -3,7 +3,7 @@ import cn from 'classnames';
 import {IconButton} from 'src/components/icon-button';
 import {ReactComponent as MinusIcon} from 'src/icons/minus.svg';
 
-import styles from './list-item.module.css';
+import styles from './list-item.module.scss';
 
 type Props = {
   name: string;

@@ -1,7 +1,9 @@
+@import 'src/styles/variables.scss';
+
 .list {
   display: flex;
   flex-direction: column;
-  background: #323541;
+  background: $bg-color-secondary;
   list-style: none;
   margin: 0;
   padding: 0;

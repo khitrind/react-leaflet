@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux';
 import {App} from './components/app';
 import {createStore} from './store';
-import './index.css';
+import './index.scss';
 
 const store = createStore();
 

@@ -4,7 +4,7 @@ import {useAppSelector} from 'src/store/store';
 import {ErrorBoundary} from 'src/components/error-boundary';
 import {ListItemAdapter} from 'src/components/list-item';
 
-import styles from './list-items.module.css';
+import styles from './list-items.module.scss';
 
 export const ListItems = memo(() => {
   const itemsOrder = useAppSelector(itemsOrderSelector);

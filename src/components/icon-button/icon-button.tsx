@@ -1,6 +1,6 @@
 import React, {memo} from 'react';
 
-import styles from './icon-button.module.css';
+import styles from './icon-button.module.scss';
 
 type Props = {
   Icon: React.FC<React.SVGProps<SVGSVGElement>>;
