@@ -1,31 +1,18 @@
-import { createSelector } from '@reduxjs/toolkit';
+import {createSelector} from '@reduxjs/toolkit';
 
-import { RootState } from 'src/store/reducers';
-import { ItemType } from 'src/types';
-import { assertIsDefined } from 'src/utils/assetions';
+import {RootState} from 'src/store/reducers';
+import {ItemType} from 'src/types';
+import {assertIsDefined} from 'src/utils/assetions';
 
 export const mapObjectsSelector = (state: RootState) => state.mapObjectsReducer;
 
-export const isItemSelectedSelector = createSelector(
-  mapObjectsSelector,
-  ({ selectedItem }) => selectedItem
-);
+export const isItemSelectedSelector = createSelector(mapObjectsSelector, ({selectedItem}) => selectedItem);
 
-export const itemsOrderSelector = createSelector(
-  mapObjectsSelector,
-  ({ itemsOrder }) => itemsOrder
-);
+export const itemsOrderSelector = createSelector(mapObjectsSelector, ({itemsOrder}) => itemsOrder);
 
-export const itemsDataSelector = createSelector(
-  mapObjectsSelector,
-  ({ items }) => items
-);
+export const itemsDataSelector = createSelector(mapObjectsSelector, ({items}) => items);
 
-const typeSafeItemDataSelector = (
-  state: RootState,
-  id: string,
-  type: ItemType
-) => {
+const typeSafeItemDataSelector = (state: RootState, id: string, type: ItemType) => {
   const item = itemsDataSelector(state)[id];
 
   assertIsDefined(item, `item with id '${id}' not found`);
@@ -37,11 +24,7 @@ const typeSafeItemDataSelector = (
   return item;
 };
 
-export const listItemParamsSelector = (
-  state: RootState,
-  id: string,
-  type: ItemType
-) => {
+export const listItemParamsSelector = (state: RootState, id: string, type: ItemType) => {
   const item = typeSafeItemDataSelector(state, id, type);
 
   return {
@@ -50,7 +33,4 @@ export const listItemParamsSelector = (
   };
 };
 
-export const isAddModeEnabledselector = createSelector(
-  mapObjectsSelector,
-  ({ isAddModeEnabled }) => isAddModeEnabled
-);
+export const isAddModeEnabledselector = createSelector(mapObjectsSelector, ({isAddModeEnabled}) => isAddModeEnabled);

@@ -1,6 +1,6 @@
-import { Header } from 'src/components/header';
-import { Map } from 'src/components//map';
-import { ListItems } from 'src/components/list-items';
+import {Header} from 'src/components/header';
+import {Map} from 'src/components//map';
+import {ListItems} from 'src/components/list-items';
 
 import styles from './app.module.css';
 

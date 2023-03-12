@@ -2,7 +2,6 @@
 
 [`Available via link`](https://react-leaflet-task.netlify.app/)
 
-
 ## Tasks
 
 The task is to create a simple react-leaflet application that contains

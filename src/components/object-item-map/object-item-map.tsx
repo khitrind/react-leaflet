@@ -1,14 +1,12 @@
-import { ComponentType } from 'react';
-import { ItemType } from 'src/types';
-import { PolylineItemAdapter } from '../polyline-item/polyline-item-adapter';
+import {ComponentType} from 'react';
+import {ItemType} from 'src/types';
+import {PolylineItemAdapter} from '../polyline-item/polyline-item-adapter';
 
 type ComponentProps = {
   id: string;
 };
 
-type ComponentFactory = (
-  type: ItemType
-) => null | ComponentType<ComponentProps>;
+type ComponentFactory = (type: ItemType) => null | ComponentType<ComponentProps>;
 
 const TYPE_TO_COMPONENT = {
   polyline: PolylineItemAdapter,

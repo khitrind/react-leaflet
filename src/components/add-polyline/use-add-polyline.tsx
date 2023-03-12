@@ -1,13 +1,13 @@
-import { LatLngTuple, LeafletMouseEvent } from 'leaflet';
-import { useCallback, useState } from 'react';
-import { convertLatLngToTuple } from 'src/utils/convert-lat-lng-to-tuple';
-import { CreateObjectCallback } from './types';
+import {LatLngTuple, LeafletMouseEvent} from 'leaflet';
+import {useCallback, useState} from 'react';
+import {convertLatLngToTuple} from 'src/utils/convert-lat-lng-to-tuple';
+import {CreateObjectCallback} from './types';
 
 export const useAddPolyline = (cb: CreateObjectCallback) => {
   const [position, setPosition] = useState<LatLngTuple[]>([]);
 
   const handleClick = useCallback((e: LeafletMouseEvent) => {
-    setPosition(pos => [...pos, convertLatLngToTuple(e.latlng)]);
+    setPosition((pos) => [...pos, convertLatLngToTuple(e.latlng)]);
   }, []);
 
   const handleDoubleClick = useCallback(() => {
@@ -20,5 +20,5 @@ export const useAddPolyline = (cb: CreateObjectCallback) => {
     setPosition([]);
   }, [cb, position]);
 
-  return { position, handleClick, handleDoubleClick };
+  return {position, handleClick, handleDoubleClick};
 };

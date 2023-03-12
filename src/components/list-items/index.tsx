@@ -1,1 +1,1 @@
-export { ListItems } from './list-items';
+export {ListItems} from './list-items';

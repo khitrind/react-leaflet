@@ -1,21 +1,20 @@
-import { memo, useMemo } from 'react';
-import { Polyline, useMapEvents } from 'react-leaflet';
-import { useClickAndDoubleClick } from 'src/utils/use-click-and-double-click';
-import { CreateObjectCallback } from './types';
+import {memo, useMemo} from 'react';
+import {Polyline, useMapEvents} from 'react-leaflet';
+import {useClickAndDoubleClick} from 'src/utils/use-click-and-double-click';
+import {CreateObjectCallback} from './types';
 
-import { useAddPolyline } from './use-add-polyline';
+import {useAddPolyline} from './use-add-polyline';
 
-const fillBlueOptions = { fillColor: 'blue' };
+const fillBlueOptions = {color: 'green'};
 
 type Props = {
   onObjectCreated: CreateObjectCallback;
 };
 
-export const AddPolyline = memo(({ onObjectCreated }: Props) => {
-  const { position, handleClick, handleDoubleClick } =
-    useAddPolyline(onObjectCreated);
+export const AddPolyline = memo(({onObjectCreated}: Props) => {
+  const {position, handleClick, handleDoubleClick} = useAddPolyline(onObjectCreated);
 
-  const { onClick, onDoubleClick } = useClickAndDoubleClick({
+  const {onClick, onDoubleClick} = useClickAndDoubleClick({
     onClick: handleClick,
     onDoubleClick: handleDoubleClick,
   });
@@ -25,7 +24,7 @@ export const AddPolyline = memo(({ onObjectCreated }: Props) => {
       click: onClick,
       dblclick: onDoubleClick,
     }),
-    [onClick, onDoubleClick]
+    [onClick, onDoubleClick],
   );
 
   useMapEvents(eventHandlerMap);

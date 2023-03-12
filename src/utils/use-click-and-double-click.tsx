@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import {useCallback, useRef} from 'react';
 
 type TimerParams = {
   timer: number;
@@ -11,12 +11,8 @@ export type Props<T> = {
   delay?: number;
 };
 
-export const useClickAndDoubleClick = <T,>({
-  onClick,
-  onDoubleClick,
-  delay = 200,
-}: Props<T>) => {
-  const ref = useRef<TimerParams>({ timer: 0, prevent: false });
+export const useClickAndDoubleClick = <T,>({onClick, onDoubleClick, delay = 200}: Props<T>) => {
+  const ref = useRef<TimerParams>({timer: 0, prevent: false});
 
   const handleClick = useCallback(
     (e: T) => {
@@ -27,7 +23,7 @@ export const useClickAndDoubleClick = <T,>({
         ref.current.prevent = false;
       }, delay);
     },
-    [onClick, delay]
+    [onClick, delay],
   );
 
   const handleDoubleClick = useCallback(
@@ -36,8 +32,8 @@ export const useClickAndDoubleClick = <T,>({
       window.clearTimeout(ref.current.timer);
       onDoubleClick(e);
     },
-    [onDoubleClick]
+    [onDoubleClick],
   );
 
-  return { onClick: handleClick, onDoubleClick: handleDoubleClick };
+  return {onClick: handleClick, onDoubleClick: handleDoubleClick};
 };

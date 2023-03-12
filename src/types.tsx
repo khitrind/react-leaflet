@@ -1,4 +1,4 @@
-import { LatLngExpression } from 'leaflet';
+import {LatLngExpression} from 'leaflet';
 
 export enum ItemType {
   Polyline = 'polyline',

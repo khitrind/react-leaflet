@@ -1,6 +1,6 @@
-import { memo, useMemo } from 'react';
-import { LatLngExpression, LeafletEventHandlerFnMap } from 'leaflet';
-import { Polyline } from 'react-leaflet';
+import {memo, useMemo} from 'react';
+import {LatLngExpression, LeafletEventHandlerFnMap} from 'leaflet';
+import {Polyline} from 'react-leaflet';
 
 type Props = {
   id: string;
@@ -9,16 +9,15 @@ type Props = {
   onClick: () => void;
 };
 
-export const PolylineItem = memo(({ isActive, position, onClick }: Props) => {
-  const eventHandlers: LeafletEventHandlerFnMap = useMemo(
-    () => ({ click: onClick }),
-    [onClick]
+export const PolylineItem = memo(({isActive, position, onClick}: Props) => {
+  const eventHandlers: LeafletEventHandlerFnMap = useMemo(() => ({click: onClick}), [onClick]);
+
+  const pathOptions = useMemo(
+    () => ({
+      color: isActive ? 'red' : 'blue',
+    }),
+    [isActive],
   );
-  return (
-    <Polyline
-      pathOptions={{ color: isActive ? 'red' : 'green' }}
-      positions={position}
-      eventHandlers={eventHandlers}
-    />
-  );
+
+  return <Polyline pathOptions={pathOptions} positions={position} eventHandlers={eventHandlers} />;
 });

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, {memo} from 'react';
 
 import styles from './icon-button.module.css';
 
@@ -9,12 +9,8 @@ type Props = {
   fill?: string;
 };
 
-export const IconButton = memo(({ label, onClick, Icon, fill }: Props) => (
-  <button
-    className={styles.button}
-    type="button"
-    aria-label={label}
-    onClick={onClick}>
+export const IconButton = memo(({label, onClick, Icon, fill}: Props) => (
+  <button className={styles.button} type="button" aria-label={label} onClick={onClick}>
     <Icon className={styles.icon} fill={fill} />
   </button>
 ));

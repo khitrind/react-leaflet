@@ -1,13 +1,13 @@
-import { memo } from 'react';
-import { ItemType } from 'src/types';
-import { getMapObjectComponent } from 'src/components/object-item-map';
+import {memo} from 'react';
+import {ItemType} from 'src/types';
+import {getMapObjectComponent} from 'src/components/object-item-map';
 
 type Props = {
   id: string;
   type: ItemType;
 };
 
-export const MapItem = memo(({ id, type }: Props) => {
+export const MapItem = memo(({id, type}: Props) => {
   const Component = getMapObjectComponent(type);
 
   if (!Component) {
