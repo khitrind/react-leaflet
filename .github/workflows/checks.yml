@@ -1,12 +1,23 @@
 name: Lint
 
 on:
-  push:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Branch
+        type: string
+        required: true
+        default: main
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
     branches:
       - main
-
 jobs:
-  eslint:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
