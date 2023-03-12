@@ -7,7 +7,6 @@
     "dev": "vite",
     "tsc": "tsc",
     "build": "tsc && vite build",
-    "preview": "vite preview",
     "lint": "eslint --ext .ts src",
     "test": "jest ./",
     "format": "prettier --write ."
