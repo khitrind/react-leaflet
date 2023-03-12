@@ -55,8 +55,8 @@ const mapObjectsSlice = createSlice({
       delete state.items[payload];
     },
 
-    toggleIsAddMode: (state) => {
-      state.isAddModeEnabled = !state.isAddModeEnabled; 
+    toggleIsAddMode: state => {
+      state.isAddModeEnabled = !state.isAddModeEnabled;
     },
   },
 });
@@ -68,5 +68,5 @@ export const {
   clearSelectedItem,
   addMapObject,
   removeItem,
-  toggleIsAddMode
+  toggleIsAddMode,
 } = mapObjectsSlice.actions;

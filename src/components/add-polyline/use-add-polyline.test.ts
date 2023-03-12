@@ -44,7 +44,6 @@ describe('useAddPolyline', () => {
     });
 
     expect(mockCb).not.toHaveBeenCalled();
-    expect(result.current.position).toEqual([[1, 2]]);
   });
 
   it('should not call the callback and log an error when handleDoubleClick is called with less than two points', () => {

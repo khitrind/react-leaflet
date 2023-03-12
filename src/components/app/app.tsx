@@ -8,9 +8,7 @@ export const App = () => {
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
-        <Header
-          text={'Item list'}
-        />
+        <Header text={'Item list'} />
         <ListItems />
       </aside>
 

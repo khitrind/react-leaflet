@@ -1,5 +1,6 @@
 import { memo, useMemo } from 'react';
 import { Polyline, useMapEvents } from 'react-leaflet';
+import { useClickAndDoubleClick } from 'src/utils/use-click-and-double-click';
 import { CreateObjectCallback } from './types';
 
 import { useAddPolyline } from './use-add-polyline';
@@ -14,12 +15,17 @@ export const AddPolyline = memo(({ onObjectCreated }: Props) => {
   const { position, handleClick, handleDoubleClick } =
     useAddPolyline(onObjectCreated);
 
+  const { onClick, onDoubleClick } = useClickAndDoubleClick({
+    onClick: handleClick,
+    onDoubleClick: handleDoubleClick,
+  });
+
   const eventHandlerMap = useMemo(
     () => ({
-      click: handleClick,
-      dblclick: handleDoubleClick,
+      click: onClick,
+      dblclick: onDoubleClick,
     }),
-    [handleClick, handleDoubleClick]
+    [onClick, onDoubleClick]
   );
 
   useMapEvents(eventHandlerMap);

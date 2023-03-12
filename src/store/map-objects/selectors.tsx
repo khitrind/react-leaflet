@@ -52,5 +52,5 @@ export const listItemParamsSelector = (
 
 export const isAddModeEnabledselector = createSelector(
   mapObjectsSelector,
-  ({isAddModeEnabled}) => isAddModeEnabled
+  ({ isAddModeEnabled }) => isAddModeEnabled
 );
