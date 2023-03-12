@@ -49,3 +49,8 @@ export const listItemParamsSelector = (
     isActive: state.mapObjectsReducer.selectedItem === id,
   };
 };
+
+export const isAddModeEnabledselector = createSelector(
+  mapObjectsSelector,
+  ({isAddModeEnabled}) => isAddModeEnabled
+);

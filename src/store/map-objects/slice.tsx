@@ -10,12 +10,14 @@ type State = {
   itemsOrder: OrderInfo[];
   items: Record<string, ItemData>;
   selectedItem: string | undefined;
+  isAddModeEnabled: boolean;
 };
 
 const initialState: State = {
   itemsOrder: [],
   items: {},
   selectedItem: undefined,
+  isAddModeEnabled: false,
 };
 
 const mapObjectsSlice = createSlice({
@@ -52,10 +54,19 @@ const mapObjectsSlice = createSlice({
 
       delete state.items[payload];
     },
+
+    toggleIsAddMode: (state) => {
+      state.isAddModeEnabled = !state.isAddModeEnabled; 
+    },
   },
 });
 
 export const { reducer: mapObjectsReducer } = mapObjectsSlice;
 
-export const { setSelectedItem, clearSelectedItem, addMapObject, removeItem } =
-  mapObjectsSlice.actions;
+export const {
+  setSelectedItem,
+  clearSelectedItem,
+  addMapObject,
+  removeItem,
+  toggleIsAddMode
+} = mapObjectsSlice.actions;
