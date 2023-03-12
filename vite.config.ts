@@ -4,7 +4,6 @@ import path from 'path';
 import dns from 'dns';
 import svgr from 'vite-plugin-svgr';
 
-
 dns.setDefaultResultOrder('verbatim');
 
 // https://vitejs.dev/config/

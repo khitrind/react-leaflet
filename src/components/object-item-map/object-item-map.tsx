@@ -7,13 +7,12 @@ type ComponentProps = {
 };
 
 type ComponentFactory = (
-  type: ItemType,
-) =>  null | ComponentType<ComponentProps>;
+  type: ItemType
+) => null | ComponentType<ComponentProps>;
 
 const TYPE_TO_COMPONENT = {
-  polyline: PolylineItemAdapter
+  polyline: PolylineItemAdapter,
 } as const;
-
 
 export const getMapObjectComponent: ComponentFactory = (type: ItemType) => {
   return TYPE_TO_COMPONENT[type] || null;

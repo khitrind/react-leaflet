@@ -11,7 +11,7 @@ type Props = PropsWithChildren<{
  */
 export class ErrorBoundary extends Component<Props> {
   state = {
-    hasError: false
+    hasError: false,
   };
 
   componentDidCatch(error: Error) {

@@ -9,7 +9,9 @@ export const App = () => {
     <div className={styles.container}>
       <aside className={styles.sidebar}>
         <Header
-          onClick={() => { console.log(12); }}
+          onClick={() => {
+            console.log(12);
+          }}
           text={'Item list'}
         />
         <ListItems />
@@ -21,5 +23,3 @@ export const App = () => {
     </div>
   );
 };
-
-

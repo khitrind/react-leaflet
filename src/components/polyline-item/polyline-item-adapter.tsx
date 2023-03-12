@@ -9,12 +9,13 @@ import { PolylineItem } from './polyline-item';
 
 type Props = {
   id: string;
-}
+};
 
-export const PolylineItemAdapter = memo(({id}: Props) => {
-  const { item, isActive } = useAppSelector((state) =>
-    listItemParamsSelector(state, id, ItemType.Polyline),
-  deepEqual);
+export const PolylineItemAdapter = memo(({ id }: Props) => {
+  const { item, isActive } = useAppSelector(
+    state => listItemParamsSelector(state, id, ItemType.Polyline),
+    deepEqual
+  );
 
   const handleClick = useBoundAction(() => setSelectedItem(id));
 

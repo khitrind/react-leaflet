@@ -1,1 +1,1 @@
-export {PolylineItem} from './polyline-item';
+export { PolylineItem } from './polyline-item';

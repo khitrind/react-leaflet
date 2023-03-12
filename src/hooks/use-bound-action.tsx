@@ -8,9 +8,14 @@ type UseBoundAction = {
 /**
  * Wrap actionCreator to dispatch
  */
-export const useBoundAction: UseBoundAction = (actionCreator: (...args: any[]) => any) => {
+export const useBoundAction: UseBoundAction = (
+  actionCreator: (...args: any[]) => any
+) => {
   const dispatch = useDispatch();
 
   // eslint-disable-next-line no-undef
-  return useCallback((...arg: any) => dispatch(actionCreator(...arg)), [dispatch, actionCreator]);
+  return useCallback(
+    (...arg: any) => dispatch(actionCreator(...arg)),
+    [dispatch, actionCreator]
+  );
 };

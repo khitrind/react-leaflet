@@ -1,1 +1,1 @@
-export {getMapObjectComponent} from './object-item-map';
+export { getMapObjectComponent } from './object-item-map';

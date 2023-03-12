@@ -8,7 +8,10 @@ export class AssertionError extends Error {
   }
 }
 
-export function assertIs(condition: boolean, message?: string): asserts condition {
+export function assertIs(
+  condition: boolean,
+  message?: string
+): asserts condition {
   if (!condition) {
     throw new AssertionError(message ?? 'Assert condition failed');
   }
@@ -17,7 +20,10 @@ export function assertIs(condition: boolean, message?: string): asserts conditio
 /**
  * Check is value exists
  */
-export function assertIsDefined<T>(value: T, message?: string): asserts value is NonNullable<T> {
+export function assertIsDefined<T>(
+  value: T,
+  message?: string
+): asserts value is NonNullable<T> {
   const isValidValue = value !== undefined && value !== null;
   const wrongValueDefaultMessage = !isValidValue
     ? `Expected 'value' to be defined, but receive ${value}`

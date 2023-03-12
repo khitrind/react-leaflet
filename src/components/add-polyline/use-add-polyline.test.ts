@@ -1,4 +1,3 @@
-
 import { renderHook } from '@testing-library/react';
 import { LeafletMouseEvent } from 'leaflet';
 import { expect, it, describe } from '@jest/globals';
@@ -7,14 +6,13 @@ import { useAddPolyline } from './use-add-polyline';
 import { CreateObjectCallback } from './types';
 import { act } from 'react-dom/test-utils';
 
-
 const mockCb: CreateObjectCallback = () => {
   // mock-cb;
 };
 
-const creatLeafletMouseEvent = (latlng?: { lat: number, lng: number }) => {
+const creatLeafletMouseEvent = (latlng?: { lat: number; lng: number }) => {
   return {
-    latlng: latlng || { lat: 1, lng: 2 }
+    latlng: latlng || { lat: 1, lng: 2 },
   } as unknown as LeafletMouseEvent;
 };
 
@@ -35,7 +33,6 @@ describe('useAddPolyline', () => {
 
     expect(result.current.position.length).toBe(2);
   });
-
 
   test('should not call cb when handleDoubleClick is called with less than 2 points', () => {
     const mockCb = jest.fn();
@@ -69,5 +66,4 @@ describe('useAddPolyline', () => {
 
     consoleSpy.mockRestore();
   });
-
 });
