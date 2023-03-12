@@ -25,7 +25,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         app: './index.html',
-        'service-worker': './sw.ts',
       },
     },
   },

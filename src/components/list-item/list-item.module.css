@@ -9,6 +9,10 @@
   background: #5f647b;
 }
 
+.listItem:focus {
+  background: #5f647b;
+}
+
 .active {
   background: #5f647b;
 }
