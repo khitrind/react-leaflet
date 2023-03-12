@@ -1,8 +1,28 @@
 .listItem {
   display: flex;
-  background: green;
+  justify-content: space-between;
+  padding: 12px;
+  align-items: center;
+}
+
+.listItem:hover {
+  background: #5f647b;
 }
 
 .active {
-  background: blue;
+  background: #5f647b;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+  margin: 0;
 }

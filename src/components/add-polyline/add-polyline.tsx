@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo ,useMemo} from 'react';
 import { Polyline, useMapEvents } from 'react-leaflet';
 import { CreateObjectCallback } from './types';
 
@@ -13,10 +13,12 @@ type Props = {
 export const AddPolyline = memo(({ onObjectCreated }: Props) => {
   const { position, handleClick, handleDoubleClick } = useAddPolyline(onObjectCreated);
 
-  useMapEvents({
+  const eventHandlerMap = useMemo(() => ({
     click: handleClick,
     dblclick: handleDoubleClick,
-  });
+  }), [handleClick, handleDoubleClick]);
+  
+  useMapEvents(eventHandlerMap);
 
   return (
     <Polyline pathOptions={fillBlueOptions} positions={position} />

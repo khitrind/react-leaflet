@@ -1,10 +1,14 @@
 import { LatLngExpression } from 'leaflet';
 
-export type ItemType = 'polyline';
+export enum ItemType {
+  Polyline = 'polyline',
+}
 
-export type MapObjectData = {
+
+export type ItemData = {
   type: ItemType;
   id: string;
   position: LatLngExpression[];
   name: string;
 }
+

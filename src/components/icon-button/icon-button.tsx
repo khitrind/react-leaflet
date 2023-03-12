@@ -1,17 +1,17 @@
 import React, { memo } from 'react';
+import { ReactComponent as MinusIcon } from 'src/icons/minus.svg';
 
 import styles from './icon-button.module.css';
 
 type Props = {
-  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   label: string;
   onClick: () => void;
 }
 
-export const IconButton = memo(({ Icon, label, onClick }: Props) => {
+export const IconButton = memo(({ label, onClick }: Props) => {
   return (
     <button className={styles.button} type="button" aria-label={label} onClick={onClick}>
-      <Icon className={styles.icon} />
+      <MinusIcon className={styles.icon} />
     </button>
   );
 });
