@@ -8,11 +8,13 @@ type TimerParams = {
 export type Props<T> = {
   onClick: (args: T) => void;
   onDoubleClick: (args: T) => void;
+  delay?: number;
 };
 
 export const useClickAndDoubleClick = <T,>({
   onClick,
   onDoubleClick,
+  delay = 200,
 }: Props<T>) => {
   const ref = useRef<TimerParams>({ timer: 0, prevent: false });
 
@@ -23,9 +25,9 @@ export const useClickAndDoubleClick = <T,>({
           onClick(e);
         }
         ref.current.prevent = false;
-      }, 200);
+      }, delay);
     },
-    [onClick]
+    [onClick, delay]
   );
 
   const handleDoubleClick = useCallback(
