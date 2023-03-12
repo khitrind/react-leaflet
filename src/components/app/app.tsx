@@ -1,8 +1,6 @@
-import React from 'react';
-import { Header } from '../header';
-
-import { ListItems } from 'src/components/list-items';
+import { Header } from 'src/components/header';
 import { Map } from 'src/components//map';
+import { ListItems } from 'src/components/list-items';
 
 import styles from './app.module.css';
 
@@ -12,7 +10,8 @@ export const App = () => {
       <aside className={styles.sidebar}>
         <Header
           onClick={() => { console.log(12); }}
-          text={'Item list'} />
+          text={'Item list'}
+        />
         <ListItems />
       </aside>
 
@@ -20,7 +19,6 @@ export const App = () => {
         <Map />
       </main>
     </div>
-
   );
 };
 

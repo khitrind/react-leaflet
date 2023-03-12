@@ -4,12 +4,13 @@ import { useAppSelector } from 'src/store/store';
 import { ErrorBoundary } from 'src/components/error-boundary';
 import { ListItemAdapter } from 'src/components/list-item';
 
+import styles from './list-items.module.css';
 
 export const ListItems = memo(() => {
   const itemsOrder = useAppSelector(itemsOrderSelector);
 
   return (
-    <div>
+    <ul className={styles.list}>
       {itemsOrder.map(({id, type}) => (
         <ErrorBoundary key={id}>
           <ListItemAdapter
@@ -18,6 +19,6 @@ export const ListItems = memo(() => {
           />
         </ErrorBoundary>
       ))}
-    </div>
+    </ul>
   );
 });
