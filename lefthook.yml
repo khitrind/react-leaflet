@@ -3,7 +3,7 @@ pre-commit:
   commands:
     lint:
       glob: '*.{ts,tsx}'
-      run: npm run lint
+      run: npm run lint {staged_files}
     format:
       glob: '*.{ts,tsx}'
-      run: npm run format
+      run: npm run prettier {staged_files}
