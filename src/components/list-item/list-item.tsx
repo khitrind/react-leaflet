@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import cn from 'classnames';
 import { IconButton } from 'src/components/icon-button';
+import { ReactComponent as MinusIcon } from 'src/icons/minus.svg';
+
 import styles from './list-item.module.css';
 
 type Props = {
@@ -20,7 +22,11 @@ export const ListItem = memo(
         <p className={styles.text}>{name}</p>
         {type && <p className={styles.text}>{type}</p>}
       </div>
-      <IconButton onClick={onRemove} label="Remove map object item button" />
+      <IconButton
+        onClick={onRemove}
+        label="Remove map object item button"
+        Icon={MinusIcon}
+      />
     </li>
   )
 );
