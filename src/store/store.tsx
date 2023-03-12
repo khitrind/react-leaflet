@@ -1,4 +1,10 @@
-import { AnyAction, configureStore, PreloadedState, ThunkDispatch, Store } from '@reduxjs/toolkit';
+import {
+  AnyAction,
+  configureStore,
+  PreloadedState,
+  ThunkDispatch,
+  Store,
+} from '@reduxjs/toolkit';
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
 
 import { rootReducer } from './reducers';
@@ -9,7 +15,7 @@ export const createStore = (preloadedState?: PreloadedState<RootState>) => {
   const store = configureStore({
     devTools: !isProduction,
     preloadedState,
-    reducer: rootReducer
+    reducer: rootReducer,
   });
 
   return store;

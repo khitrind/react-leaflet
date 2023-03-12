@@ -11,7 +11,6 @@ export const isItemSelectedSelector = createSelector(
   ({ selectedItem }) => selectedItem
 );
 
-
 export const itemsOrderSelector = createSelector(
   mapObjectsSelector,
   ({ itemsOrder }) => itemsOrder
@@ -22,12 +21,10 @@ export const itemsDataSelector = createSelector(
   ({ items }) => items
 );
 
-
-
 const typeSafeItemDataSelector = (
   state: RootState,
   id: string,
-  type: ItemType,
+  type: ItemType
 ) => {
   const item = itemsDataSelector(state)[id];
 
@@ -40,11 +37,10 @@ const typeSafeItemDataSelector = (
   return item;
 };
 
-
 export const listItemParamsSelector = (
   state: RootState,
   id: string,
-  type: ItemType,
+  type: ItemType
 ) => {
   const item = typeSafeItemDataSelector(state, id, type);
 
@@ -53,4 +49,3 @@ export const listItemParamsSelector = (
     isActive: state.mapObjectsReducer.selectedItem === id,
   };
 };
-

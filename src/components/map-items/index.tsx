@@ -1,1 +1,1 @@
-export {MapItems} from './map-items';
+export { MapItems } from './map-items';

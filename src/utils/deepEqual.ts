@@ -24,7 +24,10 @@ export const deepEqual = (valueA: any, valueB: any) => {
   for (let i = 0; i < keysA.length; i++) {
     const key = keysA[i];
 
-    if (!hasOwnProperty.call(valueB, key) || !deepEqual(valueA[key], valueB[key])) {
+    if (
+      !hasOwnProperty.call(valueB, key) ||
+      !deepEqual(valueA[key], valueB[key])
+    ) {
       return false;
     }
   }

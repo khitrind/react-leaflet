@@ -11,12 +11,9 @@ export const ListItems = memo(() => {
 
   return (
     <ul className={styles.list}>
-      {itemsOrder.map(({id, type}) => (
+      {itemsOrder.map(({ id, type }) => (
         <ErrorBoundary key={id}>
-          <ListItemAdapter
-            id={id}
-            type={type}
-          />
+          <ListItemAdapter id={id} type={type} />
         </ErrorBoundary>
       ))}
     </ul>
