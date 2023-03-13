@@ -40,6 +40,7 @@ const mapObjectsSlice = createSlice({
         id: payload.id,
         type: payload.type,
       });
+      state.isAddModeEnabled = false;
     },
 
     removeItem: (state, {payload}: PayloadAction<string>) => {

@@ -40,7 +40,7 @@ describe('useAddPolyline', () => {
 
     act(() => {
       result.current.handleAddPoint(creatLeafletMouseEvent({lat: 1, lng: 2}));
-      result.current.handleAddLine();
+      result.current.handleAddLine(creatLeafletMouseEvent({lat: 1, lng: 2}));
     });
 
     expect(mockCb).not.toHaveBeenCalled();
@@ -56,7 +56,7 @@ describe('useAddPolyline', () => {
     });
 
     act(() => {
-      handleAddLine();
+      handleAddLine(creatLeafletMouseEvent({lat: 1, lng: 2}));
     });
 
     expect(mockCallback).not.toHaveBeenCalled();
