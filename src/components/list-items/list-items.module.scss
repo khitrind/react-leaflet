@@ -1,12 +1,14 @@
 @import 'src/styles/variables.scss';
 
 .list {
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   background: $bg-color-secondary;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding-bottom: 0 0 24px 0;
+  overflow: scroll;
 }
 
 .emptyState {
