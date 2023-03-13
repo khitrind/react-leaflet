@@ -1,11 +1,10 @@
 import {memo, useCallback} from 'react';
 import {LatLngExpression} from 'leaflet';
-import {addMapObject} from 'src/store/map-objects/slice';
 import {AddPolyline} from './add-polyline';
 import {ItemData, ItemType} from 'src/types';
 import {isAddModeEnabledselector} from 'src/store/map-objects/selectors';
 import {useAppSelector} from 'src/store/store';
-import {useDispatch} from 'react-redux';
+import {useAddValidateMapObject} from 'src/hooks/use-add-validate-map-object';
 
 const createPolylineObject = (() => {
   let itemIdx = 1;
@@ -20,13 +19,13 @@ const createPolylineObject = (() => {
 
 export const AddPolylineAdapter = memo(() => {
   const isAddModeEnabled = useAppSelector(isAddModeEnabledselector);
-  const dispatch = useDispatch();
+  const handelAddValidateMapObject = useAddValidateMapObject();
 
   const handleObjectCreated = useCallback(
     (position: LatLngExpression[]) => {
-      dispatch(addMapObject(createPolylineObject(position)));
+      handelAddValidateMapObject(createPolylineObject(position));
     },
-    [dispatch],
+    [handelAddValidateMapObject],
   );
 
   if (!isAddModeEnabled) {

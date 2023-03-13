@@ -11,6 +11,6 @@
 
 .emptyState {
   margin: auto;
-  padding: 12px;
-  pointer: none;
+  padding: $base-padding;
+  pointer-events: none;
 }

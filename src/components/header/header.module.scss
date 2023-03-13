@@ -1,8 +1,10 @@
+@import 'src/styles/variables.scss';
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
+  padding: $base-padding;
 }
 
 .text {

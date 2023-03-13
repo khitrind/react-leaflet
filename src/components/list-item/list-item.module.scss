@@ -3,7 +3,7 @@
 .listItem {
   display: flex;
   justify-content: space-between;
-  padding: 12px;
+  padding: $base-padding;
   align-items: center;
   cursor: pointer;
 }
