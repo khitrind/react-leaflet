@@ -14,9 +14,6 @@ export function assertIs(condition: boolean, message?: string): asserts conditio
   }
 }
 
-/**
- * Check is value exists
- */
 export function assertIsDefined<T>(value: T, message?: string): asserts value is NonNullable<T> {
   const isValidValue = value !== undefined && value !== null;
   const wrongValueDefaultMessage = !isValidValue ? `Expected 'value' to be defined, but receive ${value}` : '';

@@ -47,10 +47,7 @@ const mapObjectsSlice = createSlice({
         return;
       }
 
-      const index = state.itemsOrder.findIndex(({id}) => id === payload);
-      if (index !== -1) {
-        state.itemsOrder.splice(index, 1);
-      }
+      state.itemsOrder = state.itemsOrder.filter(({id}) => id !== payload);
 
       delete state.items[payload];
     },
