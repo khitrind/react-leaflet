@@ -10,14 +10,17 @@ export const useAddPolyline = (cb: CreateObjectCallback) => {
     setPosition((pos) => [...pos, convertLatLngToTuple(e.latlng)]);
   }, []);
 
-  const handleAddLine = useCallback((e: LeafletMouseEvent) => {
-    if (position.length === 0) {
-      return;
-    }
+  const handleAddLine = useCallback(
+    (e: LeafletMouseEvent) => {
+      if (position.length === 0) {
+        return;
+      }
 
-    cb([...position,  convertLatLngToTuple(e.latlng)]);
-    setPosition([]);
-  }, [cb, position]);
+      cb([...position, convertLatLngToTuple(e.latlng)]);
+      setPosition([]);
+    },
+    [cb, position],
+  );
 
   return {position, handleAddPoint, handleAddLine};
 };
