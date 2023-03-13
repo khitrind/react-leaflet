@@ -1,13 +1,13 @@
 @import 'src/styles/variables.scss';
 
 .list {
-  max-height: 90vh;
+  max-height: calc(100% - $header-height);
   display: flex;
   flex-direction: column;
   background: $bg-color-secondary;
   list-style: none;
   margin: 0;
-  padding-bottom: 0 0 24px 0;
+  padding: 0 0 24px 0;
   overflow: scroll;
 }
 
