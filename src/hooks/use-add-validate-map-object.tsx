@@ -1,12 +1,7 @@
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 import {addMapObject} from 'src/store/map-objects/slice';
-import {
-  ItemData,
-  ItemType,
-  ItemTypeToData,
-  PolylineData
-} from 'src/types';
+import {ItemData, ItemType, ItemTypeToData, PolylineData} from 'src/types';
 
 import {assertIs} from 'src/utils/assetions';
 

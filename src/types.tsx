@@ -5,7 +5,7 @@ export enum ItemType {
 }
 
 export type ItemTypeToData = {
-  [ItemType.Polyline]: PolylineData
+  [ItemType.Polyline]: PolylineData;
 };
 
 export type PolylineData = {
